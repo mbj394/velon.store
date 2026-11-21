@@ -365,5 +365,26 @@ const loadJS=u=>new Promise((r,j)=>{const e=document.createElement("script");e.s
  else{fs=mockDB();au=mockAuth()}
  sub()})();
 </script>
+ <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+  import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDJ62qHpmu4wBJwvWMoiNn1e4wB9VSScGw",
+    authDomain: "velonstore-79c64.firebaseapp.com",
+    projectId: "velonstore-79c64",
+    storageBucket: "velonstore-79c64.firebasestorage.app",
+    messagingSenderId: "726570895040",
+    appId: "1:726570895040:web:0a17b848a34cef780b4f25",
+    measurementId: "G-NYL15RLN8M"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // اجعلها متاحة لأي كود جافاسكربت في صفحتك
+  window.firebaseDB = db;
+  window.firestoreTools = { collection, addDoc, getDocs };
+</script>
 </body>
 </html>
